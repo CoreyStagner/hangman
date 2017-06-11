@@ -1,8 +1,5 @@
-**********Hangman by Corey Stagner**********
+PseudoCode
 
-A fun game of Hangman
-
-Pseudo Code
 
 Variables to define
 	lives
