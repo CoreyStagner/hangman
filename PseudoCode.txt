@@ -1,4 +1,66 @@
 PseudoCode
+	V -	wordList[]
+	F -	
+
+1. Generate a random word and store it in a variable
+	V -	word
+		wordChar
+		correctGuesses
+		incorrectGuesses
+	F -	
+
+2. Display the length of the word to the user
+	V -	answerMask[]
+	F -	
+
+3. If correct guesses is less than length of word
+	V -	
+	F -	
+
+4. prompt the user to guess a letter
+	V -	
+	F -	
+
+5. if the guess is correct increment correct guesses by 1
+	V -	
+	F -	
+
+6. if the guess is incorrect increment incorrect guesses by 1
+	and draw the next part of the hangman
+	V -	
+	F -	
+
+7. if the incorrect guesses is greater than 8 player losses and the game is 
+	over.
+	V -	
+	F -	
+
+8. if correct guesses is equal to the length of the word then the player wins.
+	V -	
+	F -	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Variables to define
@@ -10,6 +72,44 @@ Variables to define
 Functions to create
 	check if key has been hit 
 	check if letter exists in word
+
+
+
+gameLoop
+
+onload(){
+	
+	//Variables
+	var lives = 10;
+	var alphabet = [---alphabet---];
+	var guessedLetters = [];
+	var wordlist = ["tom", "mike"];
+	var word = wordList[Math.floor(Math.random * wordList.length)];
+	var 
+
+}
+
+--- guess = userInput from key code; ---
+
+var remainingLetters = word.length;
+
+	func checkLetter(guess){
+		guessedLetters.push(guess);
+		if(---guess is in array---){
+			reveal each instance of letter in answerArray;
+			remainingLetters--;
+			log(remainingLetters);
+		}
+		else{
+			lives--;
+		}
+	}
+
+
+
+
+
+
 
 When you click btn Start New Game
 	guessedLetters array needs to be emptied
@@ -30,3 +130,24 @@ When user guesses a letter
 				User losses one life
 	else
 		alert Game Over
+
+
+
+
+
+
+
+Random word chosen
+
+you draw _ for each letter
+
+player guess a letter
+
+if(correct){
+	letter is revealed
+	letter is added to guessed letters
+} else {
+	life is lost
+	letter is added to guessed letters
+}
+
