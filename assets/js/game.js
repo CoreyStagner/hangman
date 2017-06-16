@@ -10,7 +10,7 @@ var remLives = document.getElementById("remLives");
 // Variables
 /////////////////////////////////////////////////
 
-var wordList = ["aardvark", "tom", "jack", "richard"];
+var wordList = ["abruptly", "affix", "askew", "axiom", "azure", "bagpipes", "bandwagon", "banjo", "bayou", "bikini", "blitz", "bookworm", "boxcar", "boxful", "buckaroo", "buffalo", "buffoon", "cobweb", "croquet", "daiquiri", "disavow", "duplex", "dwarves", "equip", "exodus", "fishhook", "fixable", "foxglove", "galaxy", "galvanize", "gazebo", "gizmo", "glowworm", "guffaw", "haiku", "haphazard", "hyphen", "icebox", "injury", "ivory", "ivy", "jaundice", "jawbreaker", "jaywalk", "jazzy", "jigsaw", "jiujitsu", "jockey", "jovial", "joyful", "juicy", "jumbo", "kazoo", "keyhole", "khaki", "kilobyte", "kiosk", "kiwifruit", "knapsack", "larynx", "luxury", "marquis", "megahertz", "microwave", "mystify", "nightclub", "nowadays", "numbskull", "ovary", "oxidize", "oxygen", "pajama", "peekaboo", "pixel", "pizazz", "pneumonia", "polka", "quartz", "quiz", "quorum", "razzmatazz", "rhubarb", "rickshaw", "schizophrenia", "sphinx", "spritz", "squawk", "subway", "swivel", "topaz", "unknown", "unworthy", "unzip", "uptown", "vaporize", "vixen", "vodka", "vortex", "walkway", "waltz", "wavy", "waxy", "wheezy", "whiskey", "whomever", "wimpy", "wizard", "woozy", "xylophone", "yachtsman", "yippee", "youthful", "zephyr", "zigzag", "zilch", "zodiac", "zombie"];
 var word = wordList	[Math.floor(Math.random() * wordList.length)];
 var guessedLetters = [];
 var uniqueLetter = false;
@@ -33,6 +33,20 @@ remLives.innerHTML = chances;
 // Fuctions
 /////////////////////////////////////////////////
 
+function lifeLine(){
+	log("Asked for a life line.")
+	var brownNoser = confirm("If you give me an A+, I will give you an extra life");
+		if(brownNoser === true){
+			heartbeat++;
+		}
+		else{
+			alert("Too bad. You should have set yes. Just for that I am taking a life.");
+			heartbeat--;
+		}
+	// return heartbeat;
+	updateScreen();
+}
+
 // Start a new game
 function newGame(){
 	word = wordList [Math.floor(Math.random() * wordList.length)];
@@ -50,10 +64,6 @@ function newGame(){
 	solveWord = document.getElementById("solveMe");
 	solveWord.innerHTML = answerMask.join(" ");
 	updateScreen();
-}
-
-function lifeline(){
-
 }
 
 // Creates a shorter function log() to replace console.log()
@@ -146,6 +156,7 @@ function winner(){
 	var ng = confirm("Congradulations. You Win! Press OK to play again.");
 	if (ng === true) {
 		newGame();
+		updateScreen();
 	}
 }
 
@@ -154,6 +165,7 @@ function loser(){
 	var ng = confirm("Better luck next time. Press OK to play again.");
 		if (ng === true) {
 		newGame();
+		updateScreen();
 	}
 }
 
@@ -163,7 +175,6 @@ function updateScreen(){
 	showGuessed.innerHTML = guessedLetters;
 	remLives.innerHTML = heartbeat;
 }
-
 
 /////////////////////////////////////////////////
 // Events
