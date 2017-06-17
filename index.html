@@ -21,79 +21,75 @@
 	</head>
 
 	<body>
-
 		<center>
+			<div class="container" id="content">
+				<h2>Let's Play Hangman</h2>
+				
+				<br />
 
-			<h2>Let's Play Hangman</h2>
-			
-			<br />
-			<br />
+				<div class="" id="solveMe">Please turn Javascript on to play.</div>
+				
+				<br />
 
-			<div class="" id="solveMe">Please turn Javascript on to play.</div>
-			
-			<div class id="animation">
-				<video id="video" src="assets/videos/hangman.mp4"></video>
-			</div>
-			<br />
-			<h4> Chances Remaining</h4>
-			<div id="remLives">Please turn Javascript on to play.</div>
+				<div class id="animation">
+					<video id="video" src="assets/videos/hangman.mp4"></video>
+				</div>
+				<br />
+				<h4> Chances Remaining</h4>
+				<div id="remLives">Please turn Javascript on to play.</div>
 
-			<br />
-			<br />
-			
-			<h4>Guessed Letters:</h4>
-			<div class="" id="guessed">Please turn Javascript on to play.</div>
+				<br />
+				
+				<h4>Guessed Letters:</h4>
+				<div class="" id="guessed">Please turn Javascript on to play.</div>
 
-			<br />
-			<br />
+				<br />
 
-			<p style="font-weight:bold; font-size:18px;">
-				<label>Choose a letter:</label>
+				<p style="font-weight:bold; font-size:18px;">
+					<label>Choose a letter:</label>
+					<br />
+					<a href="javascript:selectLetter('Q');"><input type="button" value="Q"></a>
+					<a href="javascript:selectLetter('W');"><input type="button" value="W"></a>
+					<a href="javascript:selectLetter('E');"><input type="button" value="E"></a>
+					<a href="javascript:selectLetter('R');"><input type="button" value="R"></a>
+					<a href="javascript:selectLetter('T');"><input type="button" value="T"></a>
+					<a href="javascript:selectLetter('Y');"><input type="button" value="Y"></a>
+					<a href="javascript:selectLetter('U');"><input type="button" value="U"></a>
+					<a href="javascript:selectLetter('I');"><input type="button" value="I"></a>
+					<a href="javascript:selectLetter('O');"><input type="button" value="O"></a>
+					<a href="javascript:selectLetter('P');"><input type="button" value="P"></a>
+					<br />
+					<br />
+					<a href="javascript:selectLetter('A');"><input type="button" value="A"></a>
+					<a href="javascript:selectLetter('S');"><input type="button" value="S"></a>
+					<a href="javascript:selectLetter('D');"><input type="button" value="D"></a>
+					<a href="javascript:selectLetter('F');"><input type="button" value="F"></a>
+					<a href="javascript:selectLetter('G');"><input type="button" value="G"></a>
+					<a href="javascript:selectLetter('H');"><input type="button" value="H"></a>
+					<a href="javascript:selectLetter('J');"><input type="button" value="J"></a>
+					<a href="javascript:selectLetter('K');"><input type="button" value="K"></a>
+					<a href="javascript:selectLetter('L');"><input type="button" value="L"></a>
+					<br />
+					<br />
+					<a href="javascript:selectLetter('Z');"><input type="button" value="Z"></a>
+					<a href="javascript:selectLetter('X');"><input type="button" value="X"></a>
+					<a href="javascript:selectLetter('C');"><input type="button" value="C"></a>
+					<a href="javascript:selectLetter('V');"><input type="button" value="V"></a>
+					<a href="javascript:selectLetter('B');"><input type="button" value="B"></a>
+					<a href="javascript:selectLetter('N');"><input type="button" value="N"></a>
+					<a href="javascript:selectLetter('M');"><input type="button" value="M"></a>
+				</p>
 				<br />
 				<br /> 
-				<a href="javascript:selectLetter('Q');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="Q"></a>
-				<a href="javascript:selectLetter('W');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="W"></a>
-				<a href="javascript:selectLetter('E');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="E"></a>
-				<a href="javascript:selectLetter('R');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="R"></a>
-				<a href="javascript:selectLetter('T');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="T"></a>
-				<a href="javascript:selectLetter('Y');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="Y"></a>
-				<a href="javascript:selectLetter('U');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="U"></a>
-				<a href="javascript:selectLetter('I');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="I"></a>
-				<a href="javascript:selectLetter('O');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="O"></a>
-				<a href="javascript:selectLetter('P');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="P"></a>
-				<br />
-				<br />
-				<a href="javascript:selectLetter('A');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="A"></a>
-				<a href="javascript:selectLetter('S');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="S"></a>
-				<a href="javascript:selectLetter('D');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="D"></a>
-				<a href="javascript:selectLetter('F');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="F"></a>
-				<a href="javascript:selectLetter('G');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="G"></a>
-				<a href="javascript:selectLetter('H');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="H"></a>
-				<a href="javascript:selectLetter('J');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="J"></a>
-				<a href="javascript:selectLetter('K');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="K"></a>
-				<a href="javascript:selectLetter('L');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="L"></a>
-				<br />
-				<br />
-				<a href="javascript:selectLetter('Z');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="Z"></a>
-				<a href="javascript:selectLetter('X');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="X"></a>
-				<a href="javascript:selectLetter('C');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="C"></a>
-				<a href="javascript:selectLetter('V');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="V"></a>
-				<a href="javascript:selectLetter('B');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="B"></a>
-				<a href="javascript:selectLetter('N');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="N"></a>
-				<a href="javascript:selectLetter('M');"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="M"></a>
-			</p>
-			<br />
-			<br /> 
-			<p>
-				<a href="javascript:newGame()"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="Start game / Reset game"></a>
-			</p>
-			<p>
-				<a href="javascript:lifeLine()"><input type="button" style="cursor:pointer; margin-left: 10px; font-size:18px;" value="I need another life."></a>
-			</p>
+				<p>
+					<a href="javascript:newGame()"><input type="button" value="Start game / Reset game"></a>
+				</p>
+				<p>
+					<a href="javascript:lifeLine()"><input type="button" value="I need another life."></a>
+				</p>
+			</div>
 		</center>
-
-
-	<!-- Custom Javascript -->
-	<script src="assets/js/game.js"></script>
-</body>
+		<!-- Custom Javascript -->
+		<script src="assets/js/game.js"></script>
+	</body>
 </html>

@@ -1,14 +1,24 @@
-background-color: #272822;
-
 body{
-		background-image: url("../images/background-foul-play-blank.jpg");
+	background-image: url("../images/background-foul-play-blank.jpg");
+	color: #ffffff;
 }
 
-#video{
-	width:500px;
+a{
+	cursor:pointer;
+	margin-left: 5px;
+	font-size:14px;
+}
+
+#content{
+	border: 4px solid #000000;
+	background-color: #430D0B;
 }
 
 #solveMe{
 	font-size: 30px;
 	font-weight: bolder;
+}
+
+#video{
+	width:500px;
 }
