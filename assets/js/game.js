@@ -1,10 +1,13 @@
 /////////////////////////////////////////////////
-// Get elements
+// Get/ Set elements
 /////////////////////////////////////////////////
 
 var solveWord = document.getElementById("solveMe");
 var showGuessed = document.getElementById("guessed");
 var remLives = document.getElementById("remLives");
+var video = document.getElementById("video");
+
+
 
 /////////////////////////////////////////////////
 // Variables
@@ -25,6 +28,7 @@ var answerMask = [];
 		answerMask[i] = "_";
 	};
 var remainingLetters = word.length;
+var vidTimeout = 2000
 solveWord.innerHTML = answerMask.join(" ");
 showGuessed.innerHTML = guessedLetters;
 remLives.innerHTML = chances;
@@ -33,21 +37,12 @@ remLives.innerHTML = chances;
 // Fuctions
 /////////////////////////////////////////////////
 
-function lifeLine(){
-	log("Asked for a life line.")
-	var brownNoser = confirm("If you give me an A+, I will give you an extra life");
-		if(brownNoser === true){
-			heartbeat++;
-		}
-		else{
-			alert("Too bad. You should have set yes. Just for that I am taking a life.");
-			heartbeat--;
-		}
-	// return heartbeat;
-	updateScreen();
+// Creates a shorter function log() to replace console.log()
+function log(str){
+	console.log(str);
 }
 
-// Start a new game
+// Starts a new game
 function newGame(){
 	word = wordList [Math.floor(Math.random() * wordList.length)];
 	guessedLetters.length = 0;
@@ -63,12 +58,8 @@ function newGame(){
 	remainingLetters = word.length;
 	solveWord = document.getElementById("solveMe");
 	solveWord.innerHTML = answerMask.join(" ");
+	video.currentTime = 0;
 	updateScreen();
-}
-
-// Creates a shorter function log() to replace console.log()
-function log(str){
-	console.log(str);
 }
 
 // Checks if the input is a valid character
@@ -121,6 +112,7 @@ function checkLetter(input){
 
 	if(counter === 0){
 			incorrectGuesses++;
+			playVideo();
 		}
 
 	for(k=0; k < word.length; k++){
@@ -147,28 +139,29 @@ function progress(){
 		winner();	
 	}
 	else if(incorrectGuesses >= chances){
-		loser();
+			setTimeout(function() {loser()}, 3000);
 	}
 }
 
 function winner(){
-	// alert("Congradulations. You Win!");
-	var ng = confirm("Congradulations. You Win! Press OK to play again.");
+	// alert("Congratulations. You Win!");
+	var ng = confirm("Congratulations. You Win! You figured out " + word + ". Press OK to play again.");
 	if (ng === true) {
 		newGame();
 		updateScreen();
 	}
 }
-
+// Will tell the user that the game is over, show them the word, and that they have lost and ask them if they want to play agian
 function loser(){
 	// alert("Better luck next time.");
-	var ng = confirm("Better luck next time. Press OK to play again.");
+	var ng = confirm("The word was " + word + ". Better luck next time. Press OK to play again.");
 		if (ng === true) {
 		newGame();
 		updateScreen();
 	}
 }
 
+// Uptdates all Get Elements to show the new information on the DOM
 function updateScreen(){
 	solveWord.innerHTML = answerMask.join(" ");
 	guessedLetters.sort();
@@ -176,53 +169,73 @@ function updateScreen(){
 	remLives.innerHTML = heartbeat;
 }
 
+// Brings up a window and if user answers correctly they will get a life, else then will lose a life
+function lifeLine(){
+	log("Asked for a life line.")
+	var brownNoser = confirm("If you give me an A+, I will give you an extra life");
+		if(brownNoser === true){
+			heartbeat++;
+		}
+		else{
+			alert("Too bad. You should have set yes. Just for that I am taking a life.");
+			heartbeat--;
+		}
+	updateScreen();
+}
+
+function playVideo(){
+
+	video.play();
+	log("before");
+	setTimeout(function() {video.pause()}, 3100);
+	log("after");
+}
+
+// function playVideo(){
+// 	vid.pause();
+// }
+
+
 /////////////////////////////////////////////////
 // Events
 /////////////////////////////////////////////////
 
 // Game loop
 
-// If key pressed
-document.onkeyup = function(event) {
-    // Captures the key press, converts it to lowercase, and saves it to a variable.
-    var letter = String.fromCharCode(event.keyCode).toLowerCase();
-    log("Player hit " + letter);
-    validateInput(letter);
-    log("Was input valid: " + validInput);
-    	if (validInput === true) {
-    		uniqueInput(letter);
-    		log("Was input unique: " + uniqueLetter);
-    			if (uniqueLetter === true) {
-    				checkLetter(letter);
-    				progress();
-    			}
-    			else{
-    				// alert("Please choose a letter that you have not used before.")
-    			}
-    	}
-    	else{
-    		// alert("Please choose a valid leter. (A to Z)")
-    	}
-}
+	// If key pressed
+		document.onkeyup = function(event) {
+			// Captures the key press, converts it to lowercase, and saves it to a variable.
+			var letter = String.fromCharCode(event.keyCode).toLowerCase();
+			log("Player hit " + letter);
+			validateInput(letter);
+			log("Was input valid: " + validInput);
+			if (validInput === true) {
+				uniqueInput(letter);
+				log("Was input unique: " + uniqueLetter);
+				if (uniqueLetter === true) {
+					checkLetter(letter);
+					progress();F
+				}
+				else{
+					alert("Please choose a letter that you have not used before.")
+				}
+				}
+				else{
+					alert("Please choose a valid leter. (A to Z)")
+			}
+		}
 
-// If button pressed
-function selectLetter(event){
-	var letter = String(event).toLowerCase();
-    log("Player hit " + letter);
-    uniqueInput(letter);
-    log("Was input unique: " + uniqueLetter);
-		if (uniqueLetter === true) {
-			checkLetter(letter);
-			progress();
+	// If button pressed
+		function selectLetter(event){
+			var letter = String(event).toLowerCase();
+			log("Player hit " + letter);
+			uniqueInput(letter);
+			log("Was input unique: " + uniqueLetter);
+			if (uniqueLetter === true) {
+				checkLetter(letter);
+				progress();
+			}
+			else{
+				alert("Please choose a letter that you have not used before.");
+			}
 		}
-		else{
-			alert("Please choose a letter that you have not used before.");
-			log("not unique")
-		}
-    // 	}
-    // 	else{
-    // 		// alert("Please choose a valid leter. (A to Z)")
-    // 	}
-    // solveWord.textContent = answerMask;
-    // solveWord.innerHTML = answerMask.join(" ");
-}
