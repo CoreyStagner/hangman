@@ -7,3 +7,8 @@ body{
 #video{
 	width:500px;
 }
+
+#solveMe{
+	font-size: 30px;
+	font-weight: bolder;
+}
